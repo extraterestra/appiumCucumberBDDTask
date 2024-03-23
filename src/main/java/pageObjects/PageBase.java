@@ -37,9 +37,19 @@ public class PageBase {
         element.sendKeys(text);
     }
 
+    public String getElementText(MobileElement element) {
+        waitForVisibility(element);
+        return element.getText();
+    }
+
     public String getAttribute(MobileElement element, String attribute) {
         waitForVisibility(element);
         return element.getAttribute(attribute);
+    }
+
+    public Boolean isElementEnabled(MobileElement element) {
+        waitForVisibility(element);
+        return element.isEnabled();
     }
 
 }

@@ -10,7 +10,7 @@ public class ListingPage extends PageBase{
         super(appiumDriver);
     }
 
-    @AndroidFindBy(id = "7d137913-d8ea-4faa-870d-a112278c53b6")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Native View']")
     MobileElement nativeView;
 
     public void clickNativeViewOption() {
