@@ -3,9 +3,13 @@ package pageObjects;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PageBase {
 
@@ -42,14 +46,17 @@ public class PageBase {
         return element.getText();
     }
 
-    public String getAttribute(MobileElement element, String attribute) {
-        waitForVisibility(element);
-        return element.getAttribute(attribute);
-    }
-
     public Boolean isElementEnabled(MobileElement element) {
         waitForVisibility(element);
         return element.isEnabled();
+    }
+
+    public Boolean isElementPresent(MobileElement element, String xpath) {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOf(element));
+        List<MobileElement> elementsFound = new ArrayList<>();
+        elementsFound = driver.findElements(By.xpath(xpath));
+        return elementsFound.size() > 0;
     }
 
 }

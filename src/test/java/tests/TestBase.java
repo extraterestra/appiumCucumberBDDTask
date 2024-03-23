@@ -10,17 +10,16 @@ public class TestBase {
 
     public static AppiumDriver driver;
 
-    public void Android_setUp() throws MalformedURLException, InterruptedException {
+    public void Android_setUp(String appName) throws MalformedURLException, InterruptedException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("platformName", "Android");
         cap.setCapability("platformVersion", "7.0");
         cap.setCapability("deviceName", "Android Emulator3");
-        cap.setCapability("app", "C:\\Users\\DELL\\Desktop\\serg\\TRAINING\\ApiTask\\appium\\otherFrm\\Tui\\apps\\appiumChallenge.apk");
+        cap.setCapability("app", "C:\\Users\\DELL\\Desktop\\serg\\TRAINING\\ApiTask\\appium\\otherFrm\\Tui\\apps\\" + appName + ".apk");
         cap.setCapability("automationName", "UiAutomator2");
         driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), cap);
 
     }
-
 
     public static void tearDown() {
         if (null != driver) {

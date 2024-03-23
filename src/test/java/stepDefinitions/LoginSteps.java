@@ -15,45 +15,47 @@ public class LoginSteps extends TestBase {
     ListingPage listingPage;
     InvalidCredentialsPopUp popup;
 
-    @Given("Application is opened in emulator")
-    public void application_is_opened() throws MalformedURLException, InterruptedException {
-        Android_setUp();
-        System.out.println("Emulator opened");
+    @Given("Application {string} is opened in emulator")
+    public void application_is_opened(String appName) throws MalformedURLException, InterruptedException {
+        Android_setUp(appName);
+        System.out.println("Application opened");
 
     }
 
     @When("User Click Log In Button")
-    public void user_click_log_in_button() {
+    public void  user_click_log_in_button() {
         loginPage = new LoginPage(driver);
         listingPage = new ListingPage(driver);
         loginPage.clickLogInBtn();
     }
 
     @When("Listing page opened with listing option {string}")
-    public void listing_page_opened_with_listing_option(String option) {
-        Assert.assertEquals(listingPage.getNativeViewOptionText(), option);
+    public void listing_page_opened_with_listing_option(String optionText) {
+        listingPage = new ListingPage(driver);
+        Assert.assertTrue(listingPage.isOptionEnabled());
+        Assert.assertEquals(listingPage.getOptionText(), optionText);
     }
 
     @When("User fill {string} in username field")
-    public void userFillInvalidUserInUsernameField(String userName) {
+    public void fill_username(String userName) {
         loginPage = new LoginPage(driver);
         loginPage.fillUserName(userName);
     }
 
     @When("User fill {string} in password field")
-    public void userFillInvalidPasswordInPasswordField(String password) {
+    public void fill_password(String password) {
         loginPage = new LoginPage(driver);
         loginPage.fillPassword(password);
     }
 
     @Then("Invalid Credentials pop up displayed with text {string}")
-    public void invalidCredentialsPopUpDisplayed(String text) {
+    public void pop_up_displayed(String text) {
         popup = new InvalidCredentialsPopUp(driver);
         Assert.assertEquals(popup.getPopUpTextMessage(), text);
     }
 
     @When("User can close pop up")
-    public void userCanClosePopUp() {
+    public void close_pop_up() {
         popup.closePopUp();
     }
 
@@ -62,5 +64,11 @@ public class LoginSteps extends TestBase {
         loginPage = new LoginPage(driver);
         Assert.assertTrue(loginPage.isLogInButtonEnabled());
 
+    }
+
+    @When("User fill credentials {string} and {string}")
+    public void user_fill_credentials(String username, String password) {
+        fill_username(username);
+        fill_password(password);
     }
 }

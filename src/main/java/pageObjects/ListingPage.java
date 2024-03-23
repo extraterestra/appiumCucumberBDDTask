@@ -17,7 +17,16 @@ public class ListingPage extends PageBase{
         click(nativeView);
     }
 
-    public String getNativeViewOptionText() {
-        return getAttribute(nativeView, "getElementText");
+    public Boolean isOptionEnabled() {
+        return isElementEnabled(nativeView);
     }
+
+    public String getOptionText() {
+        return getElementText(nativeView);
+    }
+
+    public Boolean isElementPresentOnPage() {
+        return isElementPresent(nativeView, "//android.widget.TextView[@text='Native View']");
+    }
+
 }

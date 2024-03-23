@@ -26,4 +26,9 @@ public class InvalidCredentialsPopUp extends PageBase {
     public void closePopUp() {
         click(popUpOkBtn);
     }
+
+    public Boolean isElementPresentOnPage() {
+        return isElementPresent(popUp,
+                "//*[@resource-id='android:id/title_template' and @class='android.widget.LinearLayout' and @index='0']");
+    }
 }
