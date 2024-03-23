@@ -21,7 +21,7 @@ public class LogInTestWithData extends TestBase {
     @DataProvider(name = "test data")
     public Object[][] passData() throws IOException, ParseException {
         return JsonReader.getJSONdata
-                ("C:\\Users\\DELL\\Desktop\\serg\\TRAINING\\ApiTask\\appium\\otherFrm\\Tui\\data\\CredentialsData.json"
+        (System.getProperty("user.dir") + "\\data\\CredentialsData.json"
                         , "Credentials Data", 3);
     }
 

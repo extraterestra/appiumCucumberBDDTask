@@ -15,7 +15,8 @@ public class TestBase {
         cap.setCapability("platformName", "Android");
         cap.setCapability("platformVersion", "7.0");
         cap.setCapability("deviceName", "Android Emulator3");
-        cap.setCapability("app", "C:\\Users\\DELL\\Desktop\\serg\\TRAINING\\ApiTask\\appium\\otherFrm\\Tui\\apps\\" + appName + ".apk");
+        cap.setCapability("app",
+                (System.getProperty("user.dir") + "\\apps\\"+ appName + ".apk"));
         cap.setCapability("automationName", "UiAutomator2");
         driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), cap);
 
