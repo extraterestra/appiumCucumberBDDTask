@@ -1,4 +1,4 @@
-# QA Automation - Native App
+# QA Automation: Appium - Android - Java - Cucumber BDD - Allure report
 
 * This is a Cucumber - Appium Framework for  Android devices
 
@@ -27,8 +27,6 @@ npm i appium
 
 ### Installing
 
-There is no need to start the appium server manually, as the program will do so upon execution.
-
 From the directory of the POM.xml :
 
 ```
@@ -45,6 +43,18 @@ You can use the [uiautomatorviewer](https://developer.android.com/training/testi
 * [Appium](http://appium.io/) -  Native App automation framework
 * [Allure](https://allurereport.org/) -  Allure report
 
+On this stage of framework Appium server should be run manualy on background with command:
+```
+appium
+```
+Run with maven command:
+```
+mvn test -D"cucumber.filter.tags=@smoke"
+```
+Allure report to be generated with command:
+```
+allure serve
+```
 ## Contributing
 
 N/A
