@@ -33,9 +33,6 @@ From the directory of the POM.xml :
 mvn clean install
 ```
 
-You can use the [uiautomatorviewer](https://developer.android.com/training/testing/ui-testing/uiautomator-testing) to inspect elements on Android devices, or you can use [Appium Desktop](https://github.com/appium/appium-desktop)
-
-
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
