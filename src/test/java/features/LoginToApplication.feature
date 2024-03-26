@@ -3,7 +3,8 @@ Feature: Login to application
   @smoke
   Scenario: The user can log in with valid credentials
     Given Application 'appiumChallenge' is opened in emulator
-    When User Click Log In Button
+    When User fill credentials 'admin' and 'admin'
+    And User Click Log In Button
     Then Listing page opened with listing option 'Native View'
 
 
@@ -18,5 +19,5 @@ Feature: Login to application
 
     Examples:
       | usernameValue   | passwordValue   |
-      | user            | invalidPassword |
-      | invalidUserName | user            |
+      | admin           | invalidPassword |
+      | invalidUserName | admin           |
