@@ -66,7 +66,7 @@ public class LoginSteps extends TestBase {
 
     }
 
-    @When("User fill credentials {string} and {string}")
+    @When("User fill credentials with username {string} and with password {string}")
     public void user_fill_credentials(String username, String password) {
         fill_username(username);
         fill_password(password);

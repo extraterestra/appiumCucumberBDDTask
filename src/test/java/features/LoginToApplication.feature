@@ -3,7 +3,7 @@ Feature: Login to application
   @smoke
   Scenario: The user can log in with valid credentials
     Given Application 'appiumChallenge' is opened in emulator
-    When User fill credentials 'admin' and 'admin'
+    When User fill credentials with username 'admin' and with password 'admin'
     And User Click Log In Button
     Then Listing page opened with listing option 'Native View'
 
@@ -11,7 +11,7 @@ Feature: Login to application
   @smoke
   Scenario Outline: The user can not log in with invalid credentials
     Given Application 'appiumChallenge' is opened in emulator
-    When User fill credentials '<usernameValue>' and '<passwordValue>'
+    When User fill credentials with username '<usernameValue>' and with password '<passwordValue>'
     And User Click Log In Button
     Then Invalid Credentials pop up displayed with text 'Invalid  Credentials'
     When User can close pop up
