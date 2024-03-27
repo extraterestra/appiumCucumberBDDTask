@@ -10,10 +10,10 @@ public class InvalidCredentialsPopUp extends PageBase {
         super(appiumDriver);
     }
 
-    @AndroidFindBy(xpath = "//*[@resource-id='android:id/title_template' and @class='android.widget.LinearLayout' and @index='0']")
+    @AndroidFindBy(id = "android:id/title_template")
     MobileElement popUp;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.TextView")
+    @AndroidFindBy(id = "android:id/message")
     MobileElement popUpMessage;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button")

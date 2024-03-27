@@ -14,7 +14,7 @@ public class TestBase {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("platformName", "Android");
         cap.setCapability("platformVersion", "7.0");
-        cap.setCapability("deviceName", "Android Emulator3");
+        cap.setCapability("deviceName", "Android Emulator v.7.0");
         cap.setCapability("app",
                 (System.getProperty("user.dir") + "\\apps\\"+ appName + ".apk"));
         cap.setCapability("automationName", "UiAutomator2");

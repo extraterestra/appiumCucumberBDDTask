@@ -10,13 +10,13 @@ public class LoginPage extends PageBase {
         super(appiumDriver);
     }
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='LOG IN']")
+    @AndroidFindBy(accessibility = "login")
     MobileElement logInButton;
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@content-desc=\"username\"]\n")
+    @AndroidFindBy(accessibility = "username")
     MobileElement usernameField;
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@content-desc=\"password\"]\n")
+    @AndroidFindBy(accessibility = "password")
     MobileElement passwordField;
 
     public void clickLogInBtn() {
