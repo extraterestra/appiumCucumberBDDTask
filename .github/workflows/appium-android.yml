@@ -45,6 +45,6 @@ jobs:
         arch: x86_64
         profile: Nexus 6
         script: |
-          export PATH=$ANDROID_HOME/tools/bin:$PATH
-          sdkmanager --install 'build-tools;29.0.2' platform-tools 'platforms;android-25' emulator
-          mvn test -D"cucumber.filter.tags=@smoke"
+         export ANDROID_SDK_ROOT=$ANDROID_HOME
+         export PATH=$ANDROID_SDK_ROOT/tools/bin:$PATH
+         sdkmanager --install 'build-tools;29.0.2' platform-tools 'platforms;android-25' emulator
