@@ -37,7 +37,7 @@ jobs:
         api-level: ${{ matrix.api-level }}
         target: ${{ matrix.target }}
         arch: x86_64
-        profile: Android Emulator v.7.0
+        profile: Nexus 6
         script: mvn test -D"cucumber.filter.tags=@smoke"
         # distribution: 'temurin'
         # cache: maven
