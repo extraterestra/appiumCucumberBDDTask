@@ -33,7 +33,6 @@ jobs:
        ls -l $ANDROID_SDK_ROOT/tools/bin
        sdkmanager --install 'build-tools;29.0.2' 'platform-tools' 'platforms;android-25' 'emulator' || { echo "Error: Android SDK installation failed"; exit 1; }
 
-
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
