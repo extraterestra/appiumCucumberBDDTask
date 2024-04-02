@@ -15,7 +15,7 @@ jobs:
        api-level:  [25]
        target:  [default]
     env:
-      ANDROID_HOME: ${{ secrets.ANDROID_HOME }}
+      ANDROID_HOME: /path/to/android/sdk
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -23,20 +23,16 @@ jobs:
       with:
         java-version: 17
         distribution: 'adopt'
-    - uses: actions/setup-node@v3
+    - name: Set up Android SDK
+      run: echo "y" | sdkmanager --install 'build-tools;29.0.2' 'platform-tools' 'platforms;android-25' 'emulator' && echo "Android SDK Installed successfully"
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
       with:
         node-version: '12'
-    - name: Install JAXB dependency
+    - name: Install Appium
       run: |
-        echo "<dependency>" >> pom.xml
-        echo "    <groupId>javax.xml.bind</groupId>" >> pom.xml
-        echo "    <artifactId>jaxb-api</artifactId>" >> pom.xml
-        echo "    <version>2.3.1</version>" >> pom.xml
-        echo "</dependency>" >> pom.xml    
-    - run: |
-            npm install -g appium@v1.20.2
-            appium -v
-            appium &>/dev/null &
+        npm install -g appium@1.20.2
+        appium -v
     - name: Run Appium Tests
       uses: reactivecircus/android-emulator-runner@v1
       with:
@@ -44,7 +40,5 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
-        script: |
-         export ANDROID_SDK_ROOT=$ANDROID_HOME
-         export PATH=$ANDROID_SDK_ROOT/tools/bin:$PATH
-         sdkmanager --install 'build-tools;29.0.2' platform-tools 'platforms;android-25' emulator
+        script: mvn test -D"cucumber.filter.tags=@smoke"
+
