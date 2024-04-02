@@ -16,7 +16,7 @@ public class LoginSteps extends TestBase {
     InvalidCredentialsPopUp popup;
 
     @Given("Application {string} is opened in emulator")
-    public void application_is_opened(String appName) throws MalformedURLException, InterruptedException {
+    public void application_is_opened(String appName) throws MalformedURLException {
         Android_setUp(appName);
         System.out.println("Application opened");
 

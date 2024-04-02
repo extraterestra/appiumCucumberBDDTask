@@ -10,7 +10,7 @@ public class TestBase {
 
     public static AppiumDriver driver;
 
-    public void Android_setUp(String appName) throws MalformedURLException, InterruptedException {
+    public void Android_setUp(String appName) throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("platformName", "Android");
         cap.setCapability("platformVersion", "7.0");
