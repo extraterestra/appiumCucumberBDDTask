@@ -15,7 +15,7 @@ jobs:
        api-level:  [25]
        target:  [default]
     env:
-      ANDROID_HOME: /path/to/android/sdk
+      ANDROID_HOME: /Users/yourusername/Library/Android/sdk
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -32,7 +32,7 @@ jobs:
        echo "PATH: $PATH"
        ls -l $ANDROID_SDK_ROOT/tools/bin
        sdkmanager --install 'build-tools;29.0.2' 'platform-tools' 'platforms;android-25' 'emulator' || { echo "Error: Android SDK installation failed"; exit 1; }
-
+       
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
