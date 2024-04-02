@@ -24,6 +24,13 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '12'
+    - name: Install JAXB dependency
+      run: |
+        echo "<dependency>" >> pom.xml
+        echo "    <groupId>javax.xml.bind</groupId>" >> pom.xml
+        echo "    <artifactId>jaxb-api</artifactId>" >> pom.xml
+        echo "    <version>2.3.1</version>" >> pom.xml
+        echo "</dependency>" >> pom.xml    
     - run: |
             npm install -g appium@v1.20.2
             appium -v
