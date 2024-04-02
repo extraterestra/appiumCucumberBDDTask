@@ -15,7 +15,7 @@ jobs:
        api-level:  [25]
        target:  [default]
     env:
-      ANDROID_HOME: /path/to/android/sdk
+      ANDROID_HOME: ${{ secrets.ANDROID_HOME }}
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -44,4 +44,7 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
-        script: mvn test -D"cucumber.filter.tags=@smoke"
+        script: |
+          export PATH=$ANDROID_HOME/tools/bin:$PATH
+          sdkmanager --install 'build-tools;29.0.2' platform-tools 'platforms;android-25' emulator
+          mvn test -D"cucumber.filter.tags=@smoke"
