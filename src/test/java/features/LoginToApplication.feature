@@ -8,7 +8,7 @@ Feature: Login to application
     Then Listing page opened with listing option 'Native View'
 
 
-  @smoke1
+  @smoke
   Scenario Outline: The user can not log in with invalid credentials
     Given Application 'appiumChallenge' is opened in emulator
     When User fill credentials with username '<usernameValue>' and with password '<passwordValue>'
