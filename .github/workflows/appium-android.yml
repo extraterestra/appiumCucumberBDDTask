@@ -4,9 +4,9 @@
 name: appium-android
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "ci_actions" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "ci_actions" ]
 jobs:
   build:
     runs-on: macos-latest
