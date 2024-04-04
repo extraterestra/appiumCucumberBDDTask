@@ -52,6 +52,10 @@ Allure report to be generated with command:
 ```
 allure serve
 ```
+## Running in GitHub Actions
+
+Tests will be rerun each time when pushed in *main* branch
+
 ## Contributing
 
 N/A
