@@ -18,11 +18,11 @@ jobs:
       ANDROID_HOME: /Users/username/Library/Android/sdk
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 17
+    - name: Set up JDK 1.8
       uses: actions/setup-java@v3
       with:
-        java-version: 17
-        distribution: 'adopt'
+        java-version: 1.8
+        # distribution: 'adopt'
        
     - name: Set up Node.js
       uses: actions/setup-node@v3
