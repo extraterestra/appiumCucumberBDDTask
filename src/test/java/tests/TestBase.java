@@ -15,10 +15,8 @@ public class TestBase {
         cap.setCapability("platformName", "Android");
 //        cap.setCapability("platformVersion", "7.0");
 //        cap.setCapability("deviceName", "Android Emulator v.7.0");
-//        cap.setCapability("uiautomator2ServerInstallTimeout", 6000);
         cap.setCapability("app",
-//                                (System.getProperty("user.dir") + "\\apps\\"+ appName + ".apk"));
-                (System.getProperty("user.dir") + "/" + appName + ".apk"));
+                (System.getProperty("user.dir") + "/app/" + appName + ".apk"));
         cap.setCapability("automationName", "UiAutomator2");
         driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), cap);
 
