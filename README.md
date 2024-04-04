@@ -12,6 +12,7 @@ git clone https://github.com/extraterestra/appiumCucumberBDDTask.git
 
 * Maven Installed
 * Java v11 installed and JAVA_HOME set
+* Node.js
 * Android Studio configured to launch an emulator
 * A native app SDK 
 * Configure Android Path on your environment variables
