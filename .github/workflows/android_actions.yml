@@ -3,11 +3,9 @@ on:
   push:
     branches:
       - main
-      - android_actions
   pull_request:
     branches:
       - main
-      - android_actions
 jobs:
   run-mobile-tests:
     runs-on: macos-latest
