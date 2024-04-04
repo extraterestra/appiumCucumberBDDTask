@@ -3,7 +3,9 @@ on:
   push:
     branches: [ "ci_actions" ]
   pull_request:
-    branches: [ "ci_actions" ]
+    branches:
+      - main
+      - ci_actions
 jobs:
   run-mobile-tests:
     runs-on: macos-latest
