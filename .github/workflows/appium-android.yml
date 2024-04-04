@@ -33,14 +33,14 @@ jobs:
         npm install -g appium@1.20.2
         appium -v
     
-    - name: Set up Android SDK
-      run: |
-       export ANDROID_SDK_ROOT=$ANDROID_HOME
-       export PATH=$ANDROID_SDK_ROOT/tools/bin:$PATH
-       echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
-       echo "PATH: $PATH"
-       ls -l $ANDROID_SDK_ROOT/tools/bin
-       sdkmanager --install 'build-tools;29.0.2' 'platform-tools' 'platforms;android-25' 'emulator' || { echo "Error: Android SDK installation failed"; exit 1; } 
+    # - name: Set up Android SDK
+    #   run: |
+    #    export ANDROID_SDK_ROOT=$ANDROID_HOME
+    #    export PATH=$ANDROID_SDK_ROOT/tools/bin:$PATH
+    #    echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
+    #    echo "PATH: $PATH"
+    #    ls -l $ANDROID_SDK_ROOT/tools/bin
+    #    sdkmanager --install 'build-tools;29.0.2' 'platform-tools' 'platforms;android-25' 'emulator' || { echo "Error: Android SDK installation failed"; exit 1; } 
     
     - name: Run Appium Tests
       uses: reactivecircus/android-emulator-runner@v1
