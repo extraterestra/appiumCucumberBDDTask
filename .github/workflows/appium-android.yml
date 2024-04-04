@@ -10,27 +10,27 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    strategy:
-      matrix:
-       api-level:  [29]
-       target:  [default]
-    env:
-      ANDROID_HOME: /Users/username/Library/Android/sdk
+    # strategy:
+    #   matrix:
+    #    api-level:  [29]
+    #    target:  [default]
+    # env:
+    #   ANDROID_HOME: /Users/username/Library/Android/sdk
       
     steps:
     - name: pull the project to the runner
     - uses: actions/checkout@v3
     
-    - name: Set up JDK 11
-      uses: actions/setup-java@v3
-      with:
-        java-version: 11
-        distribution: 'temurin'
+    # - name: Set up JDK 11
+    #   uses: actions/setup-java@v3
+    #   with:
+    #     java-version: 11
+    #     distribution: 'temurin'
        
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '12'
+    # - name: Set up Node.js
+    #   uses: actions/setup-node@v3
+    #   with:
+    #     node-version: '12'
         
     - name: Install Appium
       run: |
@@ -50,8 +50,8 @@ jobs:
     - name: Run Appium Android Tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
-        api-level: ${{ matrix.api-level }}
-        # script: ./gradlew connectedCheck
+        api-level: 29
+        # api-level: ${{ matrix.api-level }}
         # target: ${{ matrix.target }}
         # arch: x86_64
         # profile: Nexus 6
