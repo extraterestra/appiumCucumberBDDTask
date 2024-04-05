@@ -15,6 +15,7 @@ public class TestBase {
         cap.setCapability("platformName", "Android");
 //        cap.setCapability("platformVersion", "7.0");
 //        cap.setCapability("deviceName", "Android Emulator v.7.0");
+        cap.setCapability("uiautomator2ServerInstallTimeout", 60000);
         cap.setCapability("app",
                 (System.getProperty("user.dir") + "/apps/"+ appName + ".apk"));
         cap.setCapability("automationName", "UiAutomator2");
